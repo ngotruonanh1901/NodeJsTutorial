@@ -6,9 +6,9 @@ let getHomepage = (req, res) => {
     results.map((row) => {
       data.push({ id: row.id, name: row.name });
     });
-    return res.render("index.ejs", { dataUser: JSON.stringify(data) });
+    return res.render("index.ejs", { dataUser: data });
   });
-//   const [rows, fields] = await connection.execute("select * From `user`");
+  //   const [rows, fields] = await connection.execute("select * From `user`");
 };
 
 module.exports = {

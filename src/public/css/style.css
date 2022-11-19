@@ -7,6 +7,14 @@ body {
 section {
       width: 1000px;
       margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap-reverse;
+}
+
+.w3-container {
+      margin-top: 50px;
+      flex: 50%;
+      order: 2;
 }
 
 table {
@@ -18,14 +26,74 @@ table {
 td,
 th {
       border: 1px solid #dddddd;
-      text-align: left;
+      text-align: center;
       padding: 8px;
 }
 
 tr:nth-child(even) {
-      background-color: #dddddd;
+      background-color: #b9d7bb;
 }
 
 .action {
       display: flex;
+      justify-content: center;
+}
+
+.action button {
+      padding: 10px;
+      margin: 5px;
+      border-radius: 10px;
+      border: none;
+      background-color: rgb(39, 168, 211);
+      color: white;
+      font-weight: 400;
+
+}
+
+.action button:hover {
+      cursor: pointer;
+      background-color: rgb(20, 97, 123);
+
+}
+
+
+.action button a {
+      text-decoration: none;
+      color: white;
+      font-weight: 400;
+}
+
+.create-form {
+      /* display: flex; */
+      /* justify-content: center; */
+      margin-top: 25px;
+      flex: 20%;
+      order: 1;
+      padding: 35px;
+}
+
+form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+}
+
+.input-name {
+      padding: 15px;
+      border-radius: 8px;
+}
+
+.create-btn {
+      margin-top: 15px;
+      padding: 15px;
+      background-color: rgb(61, 61, 202);
+      border-radius: 8px;
+      color: white;
+      font-weight: 600;
+      border: none;
+      width: 100%;
+}
+
+.create-btn:hover {
+      background-color: blue;
 }

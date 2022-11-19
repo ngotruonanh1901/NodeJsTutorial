@@ -10,10 +10,6 @@ const initWebRoute = (app) => {
   router.get("/edit-user/:id", homeController.getEditPage);
   router.post("/update-user", homeController.postEditPage);
 
-  router.get("/about", (req, res) => {
-    return res.send(`About us`);
-  });
-
   return app.use("/", router);
 };
 

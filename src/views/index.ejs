@@ -40,12 +40,15 @@
             <tr>
               <td><%= dataUser[i].id %></td>
               <td><%= dataUser[i].name %></td>
-              <td>
+              <td class="action">
                 <button>
                   <a href="/detail/user/<%= dataUser[i].id %>">Detail</a>
                 </button>
                 <button>Edit</button>
-                <button>Delete</button>
+                <form action="/delete-user" method="POST">
+                  <input type="text" hidden value="<%= dataUser[i].id %>" name="userId"/>
+                  <button>Delete</button>
+                </form>
               </td>
             </tr>
             <% } %>
@@ -55,7 +58,11 @@
       <div>
         <form action="/create-new-user" method="POST">
           <label>Last name:</label>
-          <input type="text"name="lastName" placeholder="Enter your last name" /><br /><br />
+          <input
+            type="text"
+            name="lastName"
+            placeholder="Enter your last name"
+          /><br /><br />
           <input type="submit" value="Submit" />
         </form>
       </div>

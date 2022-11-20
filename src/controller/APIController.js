@@ -50,9 +50,30 @@ let updateUser = async (req, res) => {
   });
 };
 
+let login = (req, res) => {
+  let email = req.body.email;
+  let password = req.body.password;
+
+  if (!email || !password) {
+    return (
+      res.status(500),
+      json({
+        errCode: 1,
+        message: "missing input",
+      })
+    );
+  }
+
+  return res.status(200).json({
+    errCode: 0,
+    message: "success",
+  });
+};
+
 module.exports = {
   getAllUser,
   createNewUser,
   updateUser,
   deleteUser,
+  login,
 };

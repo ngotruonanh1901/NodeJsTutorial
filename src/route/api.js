@@ -7,6 +7,9 @@ const initAPIRoute = (app) => {
   router.post("/create-user", APIController.createNewUser);
   router.put("/update-user", APIController.updateUser);
   router.delete("/delete-user/:id", APIController.deleteUser);
+
+  router.post("/handle-login", APIController.login);
+
   return app.use("/api/v1/", router);
 };
 

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Page</title>
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/index.css" />
   </head>
   <body>
     <section>
@@ -14,7 +14,8 @@
           <thead>
             <tr class="w3-light-grey">
               <th>Id</th>
-              <th>Name</th>
+              <th>Email</th>
+              <th>Password</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -22,11 +23,13 @@
             <% for(let i=0; i < dataUser.length; i++) { %>
             <tr>
               <td><%= dataUser[i].id %></td>
-              <td><%= dataUser[i].name %></td>
+              <td><%= dataUser[i].email %></td>
+              <td><%= dataUser[i].password%></td>
+
               <td class="action">
-                <button>
-                  <a href="/detail/user/<%= dataUser[i].id %>">Detail</a>
-                </button>
+                <form action="/detail/user/<%= dataUser[i].id %>" method="GET">
+                  <button>Detail</button>
+                </form>
                 <form action="/edit-user/<%= dataUser[i].id %>" method="GET">
                   <button>Edit</button>
                 </form>
@@ -47,14 +50,21 @@
       </div>
       <div class="create-form">
         <form action="/create-new-user" method="POST">
-          <label>Name:</label>
+          <label>Email:</label>
           <input
-            class="input-name"
+            class="input-email"
             type="text"
-            name="lastName"
-            placeholder="Enter your last name"
+            name="email"
+            placeholder="Enter your email"
           />
-          <input type="submit" value="Submit" class="create-btn" />
+          <label>Password:</label>
+          <input
+            class="input-password"
+            type="password"
+            name="password"
+            placeholder="Enter your password"
+          />
+          <input type="submit" value="Create" class="create-btn" />
         </form>
       </div>
     </section>

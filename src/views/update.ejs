@@ -4,16 +4,18 @@
     <title>Update</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="/css/update.css" rel="stylesheet" />
   </head>
   <body>
-    <form action="/update-user" method="POST">
-      <div>
-        <label>Name:</label>
-        <input type="text" name="lastName" value="<%=dataUser.name%>" />
+    <div class="container">
+      <form action="/update-user" method="POST">
+        <label>Email:</label>
+        <input type="text" name="email" value="<%=dataUser.email%>" />
+        <label>Password:</label>
+        <input type="text" name="password" value="<%=dataUser.password%>" />
         <input type="text" name="id" value="<%=dataUser.id%>" hidden />
-        <button type="submit">Chỉnh sửa</button>
-      </div>
-    </form>
+        <button type="submit">Save</button>
+      </form>
+    </div>
   </body>
 </html>

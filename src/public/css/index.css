@@ -13,7 +13,7 @@ section {
 
 .w3-container {
       margin-top: 50px;
-      flex: 50%;
+      flex: 60%;
       order: 2;
 }
 
@@ -64,10 +64,8 @@ tr:nth-child(even) {
 }
 
 .create-form {
-      /* display: flex; */
-      /* justify-content: center; */
       margin-top: 25px;
-      flex: 20%;
+      flex: 30%;
       order: 1;
       padding: 35px;
 }
@@ -78,9 +76,11 @@ form {
       justify-content: center;
 }
 
-.input-name {
+.input-email,
+.input-password {
       padding: 15px;
       border-radius: 8px;
+      margin-top: 10px;
 }
 
 .create-btn {
@@ -95,5 +95,6 @@ form {
 }
 
 .create-btn:hover {
+      cursor: pointer;
       background-color: blue;
 }

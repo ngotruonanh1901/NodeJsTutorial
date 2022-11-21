@@ -1,4 +1,5 @@
 import pool from "../configs/connectDB";
+import userService from "../services/userService";
 
 let getAllUser = async (req, res) => {
   const [rows, fields] = await pool.execute("SELECT * FROM user");
@@ -20,7 +21,7 @@ let createNewUser = async (req, res) => {
     password,
   ]);
   return res.status(200).json({
-    message: "Ok",
+    message: "Ok!",
   });
 };
 
@@ -34,7 +35,7 @@ let deleteUser = async (req, res) => {
   }
   await pool.execute("DELETE FROM user WHERE id = ?", [userId]);
   return res.status(200).json({
-    message: "Ok",
+    message: "Ok!",
   });
 };
 
@@ -52,26 +53,23 @@ let updateUser = async (req, res) => {
     id,
   ]);
   return res.status(200).json({
-    message: "Ok",
+    message: "Ok!",
   });
 };
 
-
-let login = (req, res) => {
+// login check
+let login = async (req, res) => {
   let { email, password } = req.body;
   if (!email || !password) {
-    return (
-      res.status(500),
-      json({
-        errCode: 1,
-        message: "missing",
-      })
-    );
+    return res.status(500).json({
+      errCode: 1,
+      message: "missing",
+    });
   }
 
+  let userData = await userService.login(email, password);
   return res.status(200).json({
-    errCode: 0,
-    message: "Ok",
+    userData,
   });
 };
 

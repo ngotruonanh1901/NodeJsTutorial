@@ -49,11 +49,11 @@
         </table>
       </div>
       <div class="create-form">
-        <form action="/create-new-user" method="POST">
+        <form action="/create-new-user" method="POST" autocomplete="on">
           <label>Email:</label>
           <input
             class="input-email"
-            type="text"
+            type="email"
             name="email"
             placeholder="Enter your email"
           />
@@ -63,6 +63,7 @@
             type="password"
             name="password"
             placeholder="Enter your password"
+            autocomplete="off"
           />
           <input type="submit" value="Create" class="create-btn" />
         </form>

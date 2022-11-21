@@ -1,7 +1,7 @@
 import pool from "../configs/connectDB";
 
 // get all user
-let getHomepage = async (req, res) => {
+let getHomePage = async (req, res) => {
   const [rows, fields] = await pool.execute("SELECT * FROM user");
   return res.render("index.ejs", { dataUser: rows });
 };
@@ -30,13 +30,14 @@ let deleteUser = async (req, res) => {
   return res.redirect("/");
 };
 
-// edit user
+// edit page
 let getEditPage = async (req, res) => {
   let userId = req.params.id;
   let [user] = await pool.execute("SELECT * FROM user WHERE id = ?", [userId]);
   return res.render("update.ejs", { dataUser: user[0] });
 };
 
+// confirm update
 let postEditPage = async (req, res) => {
   let { id, email, password } = req.body;
   await pool.execute("UPDATE user SET email = ?, password = ?  WHERE id = ?", [
@@ -48,7 +49,7 @@ let postEditPage = async (req, res) => {
 };
 
 module.exports = {
-  getHomepage,
+  getHomePage,
   getDetailPage,
   createNewUser,
   deleteUser,

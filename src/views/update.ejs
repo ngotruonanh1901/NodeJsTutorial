@@ -9,11 +9,11 @@
   <body>
     <div class="container">
       <form action="/update-user" method="POST">
+        <input type="text" name="id" value="<%=dataUser.id%>" hidden />
         <label>Email:</label>
-        <input type="text" name="email" value="<%=dataUser.email%>" />
+        <input type="email" name="email" value="<%=dataUser.email%>" />
         <label>Password:</label>
         <input type="text" name="password" value="<%=dataUser.password%>" />
-        <input type="text" name="id" value="<%=dataUser.id%>" hidden />
         <button type="submit">Save</button>
       </form>
     </div>

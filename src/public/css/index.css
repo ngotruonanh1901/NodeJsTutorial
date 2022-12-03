@@ -76,6 +76,7 @@ form {
       justify-content: center;
 }
 
+.input-fullname,
 .input-email,
 .input-password {
       padding: 15px;

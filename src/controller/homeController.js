@@ -15,11 +15,11 @@ let getDetailPage = async (req, res) => {
 
 // create user
 let createNewUser = async (req, res) => {
-  let { email, password } = req.body;
-  await pool.execute("INSERT INTO user(email, password) values (?, ?)", [
-    email,
-    password,
-  ]);
+  let { fullname, email, password } = req.body;
+  await pool.execute(
+    "INSERT INTO user(fullname, email, password) values (?, ?, ?)",
+    [fullname, email, password]
+  );
   return res.redirect("/");
 };
 
@@ -39,12 +39,11 @@ let getEditPage = async (req, res) => {
 
 // confirm update
 let postEditPage = async (req, res) => {
-  let { id, email, password } = req.body;
-  await pool.execute("UPDATE user SET email = ?, password = ?  WHERE id = ?", [
-    email,
-    password,
-    id,
-  ]);
+  let { id, fullname, email, password } = req.body;
+  await pool.execute(
+    "UPDATE user SET fullname = ?, email = ?, password = ?  WHERE id = ?",
+    [fullname, email, password, id]
+  );
   return res.redirect("/");
 };
 

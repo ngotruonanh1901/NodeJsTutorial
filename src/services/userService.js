@@ -21,9 +21,11 @@ let login = (email, password) => {
 let checkEmail = (userEmail) => {
   return new Promise(async (resolve, reject) => {
     try {
-      let user = await pool.execute("SELECT email FROM user WHERE email = ?", [
-        userEmail,
-      ]);
+      let user = await pool.user.findOne({
+        where: {
+          email: userEmail,
+        },
+      });
       if (user) {
         resolve(true);
       } else {

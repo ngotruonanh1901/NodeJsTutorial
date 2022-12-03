@@ -10,16 +10,16 @@ let getAllUser = async (req, res) => {
 
 // create new user
 let createNewUser = async (req, res) => {
-  let { email, password } = req.body;
-  if (!email || !password) {
+  let { fullname, email, password } = req.body;
+  if (!fullname || !email || !password) {
     return res.status(500).json({
       message: "Missing",
     });
   }
-  await pool.execute("INSERT INTO user(email, password) values (?, ?)", [
-    email,
-    password,
-  ]);
+  await pool.execute(
+    "INSERT INTO user(fullname, email, password) values (?, ?, ?)",
+    [fullname, email, password]
+  );
   return res.status(200).json({
     message: "Ok!",
   });
@@ -41,17 +41,16 @@ let deleteUser = async (req, res) => {
 
 // update user
 let updateUser = async (req, res) => {
-  let { id, email, password } = req.body;
-  if (!id || !email || !password) {
+  let { id, fullname, email, password } = req.body;
+  if ((!id || !fullname, !email || !password)) {
     return res.status(500).json({
       message: "Missing",
     });
   }
-  await pool.execute("UPDATE user SET email = ?, password = ? WHERE id = ?", [
-    email,
-    password,
-    id,
-  ]);
+  await pool.execute(
+    "UPDATE user SET fullname = ?, email = ?, password = ? WHERE id = ?",
+    [fullname, email, password, id]
+  );
   return res.status(200).json({
     message: "Ok!",
   });
@@ -63,7 +62,7 @@ let login = async (req, res) => {
   if (!email || !password) {
     return res.status(500).json({
       errCode: 1,
-      message: "missing",
+      message: "missing email and password",
     });
   }
 

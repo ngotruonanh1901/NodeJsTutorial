@@ -9,8 +9,8 @@ const initAPIRoute = (app) => {
   router.delete("/delete-user/:id", APIController.deleteUser);
 
   //user action
-  router.post("/login", APIController.handleLogin);
-  router.post("/register", APIController.handleRegister);
+  // router.post("/login", APIController.handleLogin);
+  // router.post("/register", APIController.handleRegister);
 
   return app.use("/api/v1/", router);
 };

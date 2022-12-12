@@ -62,40 +62,40 @@ let updateUser = async (req, res) => {
 };
 
 // login event
-let handleLogin = async (req, res) => {
-  let { email, password } = req.body;
-  if (!email || !password) {
-    return res.status(500).json({
-      errCode: 1,
-      message: "missing",
-    });
-  }
-  let userData = await userService.login(email, password);
-  return res.status(200).json({
-    userData,
-  });
-};
+// let handleLogin = async (req, res) => {
+//   let { email, password } = req.body;
+//   if (!email || !password) {
+//     return res.status(500).json({
+//       errCode: 1,
+//       message: "missing",
+//     });
+//   }
+//   let userData = await userService.login(email, password);
+//   return res.status(200).json({
+//     userData,
+//   });
+// };
 
 // sign up event
-let handleRegister = async (req, res) => {
-  let { fullname, email, password } = req.body;
-  if (!fullname || !email || !password) {
-    return res.status(500).json({
-      errCode: 1,
-      message: "missing",
-    });
-  }
-  let userData = await userService.register(fullname, email, password);
-  return res.status(200).json({
-    userData,
-  });
-};
+// let handleRegister = async (req, res) => {
+//   let { fullname, email, password } = req.body;
+//   if (!fullname || !email || !password) {
+//     return res.status(500).json({
+//       errCode: 1,
+//       message: "missing",
+//     });
+//   }
+//   let userData = await userService.register(fullname, email, password);
+//   return res.status(200).json({
+//     userData,
+//   });
+// };
 
 module.exports = {
   getAllUser,
   createNewUser,
   updateUser,
   deleteUser,
-  handleLogin,
-  handleRegister,
+  // handleLogin,
+  // handleRegister,
 };
